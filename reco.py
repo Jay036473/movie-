@@ -10,8 +10,8 @@ warnings.filterwarnings("ignore")
 
 @st.cache_data
 def load_data():
-    rating = pd.read_csv("C:/Users/admin/PyCharmMiscProject/pycharm/code/rating.csv")
-    movies = pd.read_csv("C:/Users/admin/PyCharmMiscProject/pycharm/code/movie.csv")
+    rating = pd.read_csv("code/rating.csv")
+    movies = pd.read_csv("code/movie.csv")
     merge = pd.merge(rating, movies, on="movieId", how="left")
     df = merge[["userId", "title", "rating"]]
     return df
@@ -74,4 +74,5 @@ if b4:
     df1 = user_base_rec(User)
     new = df[df['userId'].isin(df1)].sort_values(by='rating',ascending=False).head(10)
     new1 = new['title'].unique()
+
     st.dataframe(new1)
