@@ -1,4 +1,5 @@
-streamlit as st
-pandas as pd
-seaborn as sns
+streamlit 
+pandas 
+seaborn 
+
 
