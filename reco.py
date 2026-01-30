@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 @st.cache_data
 def load_data():
     rating = pd.read_csv("rating.csv")
-    movie = pd.read_csv("movie.csv")
+    movies = pd.read_csv("movie.csv")
     merge = pd.merge(rating, movies, on="movieId", how="left")
     df = merge[["userId", "title", "rating"]]
     return df
@@ -76,6 +76,7 @@ if b4:
     new1 = new['title'].unique()
 
     st.dataframe(new1)
+
 
 
 
