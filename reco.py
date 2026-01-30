@@ -106,8 +106,8 @@ st.markdown("<h1 style='text-align:center;'>🎬 Movie Recommendation System</h1
 
 @st.cache_data
 def load_data():
-    rating = pd.read_csv("C:/Users/admin/Python Project/CSV/rating.csv")
-    movies = pd.read_csv("C:/Users/admin/Python Project/CSV/movie.csv")
+    rating = pd.read_csv("rating.csv")
+    movies = pd.read_csv("movie.csv")
     merge = pd.merge(rating, movies, on="movieId", how="left")
     df = merge[["userId", "title", "rating"]]
     return df
@@ -182,4 +182,5 @@ if b5:
         rec = df[df['userId'].isin(users)].sort_values(by='rating', ascending=False).head(10)
         st.subheader("👤 Recommended Movies")
         st.dataframe(rec[['title','rating']].drop_duplicates())
+
 
